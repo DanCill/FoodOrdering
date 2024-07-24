@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        text: tintColorLight,
+        text: '#000',
         background: '#fff',
         tint: tintColorLight,
         tabIconDefault: '#ccc',
