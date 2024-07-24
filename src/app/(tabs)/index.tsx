@@ -1,15 +1,19 @@
-import { Image, Text, View } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 import products from '../../../assets/data/products';
+import ProductListItem from '../components/ProductListItem';
 
 const product = products[0]
 
-export default function TabOneScreen() {
+export default function MenuScreen() {
   return (
-    <View className='bg-white p-10 rounded-[20px]'>
-      <Image className='w-full aspect-square' source={{ uri: product.image }} resizeMode='contain' />
-      <Text className='text-lg font-semibold mt-10' >{product.name}</Text>
-      <Text className='font-bold text-tint'>${product.price}</Text>
-    </View>
+      <FlatList
+        data={products}
+        keyExtractor={(product) => product.id.toString()}
+        renderItem={({ item }) => <ProductListItem product={item} />}
+        numColumns={2}
+        contentContainerStyle={{ gap: 10, padding: 10 }}
+        columnWrapperStyle={{gap: 10}}
+      />
   );
 }
